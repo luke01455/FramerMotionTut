@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from 'framer-motion'
 import { Card, CardGrid, Container, Header } from "./Elements";
 import "./App.css";
 import Menu from "./Menu";
@@ -7,9 +8,26 @@ import purp from "./purp.png";
 import black from "./black.png";
 import green from "./green.png";
 
+//by default all transforms are 3d.
+// you should only animate transforms and opacity
+// shortcuts x y 
 function App() {
   return (
-    <div>
+    <motion.div 
+    initial={{ 
+      opacity: 0,
+      x: 100,
+      y: 100
+    }}
+    animate={{ 
+      opacity: 1,
+      x: 0,
+      y: 0
+    }}
+    transition={{
+      duration: 5
+    }}
+    >
       <Header>
         <Menu />
         <h1>Header</h1>
@@ -35,7 +53,7 @@ function App() {
           </Card>
         </CardGrid>
       </Container>
-    </div>
+    </motion.div>
   );
 }
 
